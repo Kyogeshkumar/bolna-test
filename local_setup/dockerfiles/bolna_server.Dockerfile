@@ -21,11 +21,11 @@ RUN pip install --upgrade pip setuptools wheel
 # Install uvicorn first
 RUN pip install uvicorn
 
-# Install common dependencies that bolna requires
+# Install common dependencies with compatible versions
 RUN pip install \
     python-dotenv \
-    pydantic \
-    fastapi \
+    pydantic>=2.0 \
+    fastapi>=0.100.0 \
     huggingface-hub \
     numpy \
     tqdm \
