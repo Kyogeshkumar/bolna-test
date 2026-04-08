@@ -17,5 +17,4 @@ COPY local_setup/telephony_server/twilio_api_server.py /app/
 
 EXPOSE 8001
 
-
-CMD ["uvicorn", "twilio_api_server:app", "--host", "0.0.0.0", "--port", "8001"]
+CMD ["sh", "-c", "uvicorn twilio_api_server:app --host 0.0.0.0 --port ${PORT:-8001}"]

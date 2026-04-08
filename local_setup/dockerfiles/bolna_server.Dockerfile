@@ -34,4 +34,4 @@ COPY local_setup/presets /app/presets
 
 EXPOSE 5001
 
-CMD ["uvicorn", "quickstart_server:app", "--host", "0.0.0.0", "--port", "5001"]
+CMD ["sh", "-c", "uvicorn quickstart_server:app --host 0.0.0.0 --port ${PORT:-5001}"]
