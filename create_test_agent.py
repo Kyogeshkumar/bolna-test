@@ -22,8 +22,8 @@ payload = {
                         }
                     },
                     "transcriber": {
-                        "provider": "deepgram",
-                        "model": "nova-2",
+                        "provider": "google",
+                        "model": "nova-2", 
                         "language": "en",
                         "stream": True
                     },
@@ -32,22 +32,24 @@ payload = {
                         "provider_config": {
                             "voice": "Default",
                             "voice_id": "9626c31c-bec5-4cca-baa8-f8ba9e84c8bc",
-                            "model": "sonic-3",
+                            "model": "sonic-english",
                             "language": "en"
                         },
                         "stream": True,
                         "audio_format": "pcm"
-                    }
+                    },
+                    "input": {"provider": "twilio", "format": "pcm"},
+                    "output": {"provider": "twilio", "format": "pcm"}
                 }
             }
         ],
-        "agent_welcome_message": "Hi, I am your test assistant. How can I help you today?"
+        "agent_welcome_message": "Hi, how are you?" 
     },
     "agent_prompts": {
         "task_1": {
             "system_prompt": "You are a helpful assistant. Keep your responses short and sweet."
         }
-    }
+      }
 }
 
 headers = {"Content-Type": "application/json"}
