@@ -1,7 +1,7 @@
 import requests
 import json
 
-url = "http://localhost:5011/agent"
+url = "https://bolna-test-production.up.railway.app/agent"
 payload = {
     "agent_config": {
         "agent_name": "TestAgent",

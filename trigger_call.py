@@ -1,7 +1,7 @@
 import requests
 import json
 
-url = "http://localhost:8011/call"
+url = "https://gentle-recreation-production-4113.up.railway.app/call"
 payload = {
     "agent_id": "8bc7f91d-a25c-4ae6-b5d0-9248160095f2",
     "recipient_phone_number": "+919840489664"

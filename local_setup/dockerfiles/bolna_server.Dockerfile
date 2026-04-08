@@ -36,8 +36,8 @@ RUN pip install --verbose git+https://github.com/bolna-ai/bolna@master || \
     (echo "Failed to install bolna package. See error above." && exit 1)
 
 # Copy application files
-COPY quickstart_server.py /app/
-COPY presets /app/presets
+COPY local_setup/quickstart_server.py /app/
+COPY local_setup/presets /app/presets
 
 EXPOSE 5001
 
