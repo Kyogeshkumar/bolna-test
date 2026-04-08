@@ -10,8 +10,7 @@ RUN apt-get update && \
 
 COPY telephony_server/requirements.txt /app/requirements.txt
 
-RUN --mount=type=cache,target=/root/.cache/pip \
-    pip install --upgrade pip setuptools wheel && \
+RUN pip install --upgrade pip setuptools wheel && \
     pip install -r requirements.txt
 
 COPY telephony_server/twilio_api_server.py /app/

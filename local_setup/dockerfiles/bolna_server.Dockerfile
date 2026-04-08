@@ -16,16 +16,13 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Upgrade pip and install wheel
-RUN --mount=type=cache,target=/root/.cache/pip \
-    pip install --upgrade pip setuptools wheel
+RUN pip install --upgrade pip setuptools wheel
 
 # Install uvicorn first
-RUN --mount=type=cache,target=/root/.cache/pip \
-    pip install uvicorn
+RUN pip install uvicorn
 
 # Install common dependencies that bolna requires
-RUN --mount=type=cache,target=/root/.cache/pip \
-    pip install \
+RUN pip install \
     python-dotenv \
     pydantic \
     fastapi \
@@ -35,8 +32,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     requests
 
 # Install bolna package with verbose output for debugging
-RUN --mount=type=cache,target=/root/.cache/pip \
-    pip install --verbose git+https://github.com/bolna-ai/bolna@master || \
+RUN pip install --verbose git+https://github.com/bolna-ai/bolna@master || \
     (echo "Failed to install bolna package. See error above." && exit 1)
 
 # Copy application files
