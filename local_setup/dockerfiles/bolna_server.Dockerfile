@@ -18,22 +18,15 @@ RUN apt-get update && \
 # Upgrade pip and install wheel
 RUN pip install --upgrade pip setuptools wheel
 
-# Install uvicorn first
-RUN pip install uvicorn
+# Install uvicorn and core tools
+RUN pip install uvicorn python-dotenv requests
 
-# Install common dependencies with compatible versions
-RUN pip install \
-    python-dotenv \
-    pydantic>=2.0 \
-    fastapi>=0.100.0 \
-    huggingface-hub \
-    numpy \
-    tqdm \
-    requests
-
-# Install bolna package with verbose output for debugging
+# Install bolna package
 RUN pip install --verbose git+https://github.com/bolna-ai/bolna@master || \
     (echo "Failed to install bolna package. See error above." && exit 1)
+
+# FORCE correct versions at the end to avoid downgrades
+RUN pip install "pydantic>=2.0" "fastapi>=0.103.1" "starlette>=0.27.0"
 
 # Copy application files
 COPY local_setup/quickstart_server.py /app/
