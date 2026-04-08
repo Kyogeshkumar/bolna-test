@@ -1,0 +1,7 @@
+region: us
+version: '2'
+authtoken: 3BkgplA75cKRCb12Y9OpCjNTCpT_6crcfo1vYieMG84whKSZX
+tunnels:
+  bolna-platform:
+    addr: nginx:80
+    proto: http
