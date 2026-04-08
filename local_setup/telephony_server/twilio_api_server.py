@@ -21,11 +21,15 @@ twilio_phone_number = os.getenv('TWILIO_PHONE_NUMBER')
 twilio_client = Client(twilio_account_sid, twilio_auth_token)
 
 
+import os
+
 def populate_ngrok_tunnels():
-    # Use ngrok on host
-    public_url = "https://greenly-subsatiric-jurnee.ngrok-free.dev"
-    telephony_url = public_url
-    bolna_url = public_url.replace('https:', 'wss:')
+    # Use environment variables for Railway, fallback to localhost for others
+    telephony_url = os.getenv('TELEPHONY_HOST', 'https://gentle-recreation-production-4113.up.railway.app')
+    bolna_url = os.getenv('BOLNA_HOST', 'wss://bolna-test-production.up.railway.app')
+    
+    print(f"Using telephony_host: {telephony_url}")
+    print(f"Using bolna_host: {bolna_url}")
     return telephony_url, bolna_url
 
 
